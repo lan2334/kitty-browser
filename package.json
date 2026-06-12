@@ -1,0 +1,26 @@
+{
+  "name": "kitty-browser",
+  "version": "0.1.1",
+  "description": "CloakBrowser/Puppeteer wrapper with Turnstile automation and Chrome UA helpers.",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "keywords": [
+    "cloakbrowser",
+    "puppeteer",
+    "turnstile",
+    "cloudflare",
+    "browser"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cloakbrowser": "^0.3.31",
+    "kitty-browser": "^0.1.1",
+    "puppeteer-core": "^24.31.0",
+    "xvfb": "^0.4.0"
+  }
+}
