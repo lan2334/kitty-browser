@@ -1,6 +1,6 @@
 {
   "name": "kitty-browser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CloakBrowser/Puppeteer wrapper with Turnstile automation and Chrome UA helpers.",
   "main": "index.js",
   "exports": {
@@ -18,8 +18,8 @@
     "node": ">=20"
   },
   "dependencies": {
+    "axios": "^1.17.0",
     "cloakbrowser": "^0.3.31",
-    "kitty-browser": "^0.1.1",
     "puppeteer-core": "^24.31.0",
     "xvfb": "^0.4.0"
   }

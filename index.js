@@ -2,6 +2,7 @@ const SUPPORTED_PLATFORMS = {
   windows: 'Windows',
   linux: 'Linux',
   macos: 'MacOS',
+  android: 'Android',
 };
 
 const MIN_CHROME_VERSION = 140;
@@ -87,7 +88,11 @@ function normalizePlatform(platform) {
     return SUPPORTED_PLATFORMS.macos;
   }
 
-  throw new Error("Unsupported platform. Use one of: 'Windows', 'Linux', 'MacOS'.");
+  if (normalized === 'android') {
+    return SUPPORTED_PLATFORMS.android;
+  }
+
+  throw new Error("Unsupported platform. Use one of: 'Windows', 'Linux', 'MacOS', 'Android'.");
 }
 
 function normalizeVersion(version) {
@@ -110,6 +115,10 @@ function buildChromeUserAgent(platform, version) {
 
   if (normalizedPlatform === SUPPORTED_PLATFORMS.linux) {
     return `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${normalizedVersion}.0.0.0 Safari/537.36`;
+  }
+
+  if (normalizedPlatform === SUPPORTED_PLATFORMS.android) {
+    return `Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${normalizedVersion}.0.0.0 Mobile Safari/537.36`;
   }
 
   return `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${normalizedVersion}.0.0.0 Safari/537.36`;

@@ -7,6 +7,7 @@
 - Windows
 - macOS
 - Linux
+- Android
 
 Linux 说明：
 
@@ -25,7 +26,7 @@ Linux 说明：
 适用场景：
 
 - 需要统一浏览器启动参数的自动化任务
-- 需要在 Windows / macOS / Linux 三个平台下切换 Chrome UA 的测试或调试场景
+- 需要在 Windows / macOS / Linux / Android 四个平台下切换 Chrome UA 的测试或调试场景
 - 需要对 Turnstile 页面执行自动交互辅助的浏览器工作流
 
 ## 安装
@@ -147,7 +148,7 @@ const { launch } = require("kitty-browser");
 
 - `turnstile?: boolean`
 - `turnstileIntervalMs?: number`
-- `chromeUserAgent?: { platform: 'Windows' | 'Linux' | 'MacOS', version: number }`
+- `chromeUserAgent?: { platform: 'Windows' | 'Linux' | 'MacOS' | 'Android', version: number }`
 - `disableXvfb?: boolean`
 
 ### `launchPersistentContext(options)`
@@ -158,7 +159,7 @@ const { launch } = require("kitty-browser");
 
 支持：
 
-- 平台：`Windows` / `Linux` / `MacOS`
+- 平台：`Windows` / `Linux` / `MacOS` / `Android`
 - 版本：`140` 到 `150`
 
 示例：
@@ -166,6 +167,7 @@ const { launch } = require("kitty-browser");
 ```js
 await page.SetChromeUserAgent("Linux", 144);
 await page.SetChromeUserAgent("MacOS", 150);
+await page.SetChromeUserAgent("Android", 146);
 ```
 
 ### `buildChromeUserAgent(platform, version)`
